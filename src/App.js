@@ -8,10 +8,11 @@ class App extends React.Component{
   };
 
   add = () => {
-    console.log("add")
+    this.setState(current => ({count: current.count + 1}))
   };
+  //setState calls render() and refresh
   minus =() => {
-    console.log("minus")
+    this.setState(current => ({count: current.count - 1}))
   };
 
   // react automatically execute class component's render method
