@@ -1,53 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+class App extends React.Component{
 
-function Food({name,picture,rating}){
-  return <div>
-    <h3>I love {name}</h3>
-    <h4>rating = {rating}/5.0 </h4>
-    <img src={picture} alt={name} />
-    </div>
-  ;
+  state ={
+    count: 0
+  };
 
-}
-const foodILike = [
-  { id:1,
-    name:"a",
-    image:"https://source.unsplash.com/category/nature/1600x900"
-  },
-  { id:2,
-    name:"b",
-    image:"https://source.unsplash.com/category/nature/1600x900",
-    rating:4.9
-  },
-  {
-    id:3,
-    name:"c",
-    image:"https://source.unsplash.com/category/nature/1600x900",
-    rating:4.7
-  },
-];
+  add = () => {
+    console.log("add")
+  };
+  minus =() => {
+    console.log("minus")
+  };
+
+  // react automatically execute class component's render method
+  render(){
+    return (
+      <div>
+        <h1>The number is : {this.state.count}</h1>
+        <button onClick={this.add}>Add</button>
+        <button onClick={this.minus}>Minus</button>
+      </div>
+    )
+  }
 
 
-Food.propTypes={
-  name: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired,
-  rating: PropTypes.number
-}
-
-function App() {
-  return (
-    <div>
-      {foodILike.map(dish =>(
-        <Food 
-          key={dish.id} 
-          name={dish.name} 
-          rating={dish.rating}
-          picture={dish.image}/>
-      ))}
-    </div>
-  );
 }
 
 export default App;
